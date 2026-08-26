@@ -4,11 +4,11 @@ namespace Assignment._12
 {
     public class Program
     {
-        public static void Print(List<Product> products)
+        public static void Print<T>(List<T> list)
         {
-            foreach (Product product in products)
+            foreach (T item in list)
             {
-                Console.WriteLine(product);
+                Console.WriteLine(item);
             }
         }
         static void Main(string[] args)
@@ -46,6 +46,14 @@ namespace Assignment._12
             Console.WriteLine();
             Console.WriteLine("---Detailed Report---");
             Product.PrintReport(Catalog, (Product p) => Console.WriteLine($"[{p.Category}] {p.Name} | Price:{p.Price} | Stock:{p.Stock}"));
+            Console.WriteLine();
+            #endregion
+            #region TransformProducts
+            Console.WriteLine("---Summary List---");
+            Print(Product.TransformProducts(Catalog,(Product p) => $"{p.Name} (${p.Price})"));
+            Console.WriteLine();
+            Console.WriteLine("---Price Label---");
+            Print(Product.TransformProducts(Catalog,(Product p)=>(p.Price>100)? $"{p.Name}:Expensive!" : $"{p.Name}:Affordable"));
             Console.WriteLine();
             #endregion
         }
