@@ -56,6 +56,13 @@ namespace Assignment._12
             Print(Product.TransformProducts(Catalog,(Product p)=>(p.Price>100)? $"{p.Name}:Expensive!" : $"{p.Name}:Affordable"));
             Console.WriteLine();
             #endregion
+            #region FilterProducts
+            Console.WriteLine("---Low-Stock Alert---");
+            foreach (Product item in (Product.FilterProducts(Catalog, (Product p) => p.Stock < 20)))
+            {
+                Console.WriteLine($"[LOW STOCK] {item.Name}: only {item.Stock} left!");
+            }
+            #endregion
         }
     }
 }

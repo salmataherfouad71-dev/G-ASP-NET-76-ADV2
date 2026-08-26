@@ -46,5 +46,18 @@ namespace Assignment._12
             }
             return result;
         }
+        //Predicate delegate type because there is one Product input and a bool return type. 
+        public static List<Product> FilterProducts(List<Product> products, Predicate<Product> filter)
+        { 
+            List<Product>result=new List<Product>();
+            foreach (Product product in products)
+            {
+                if (filter(product))
+                {
+                    result.Add(product);
+                }
+            }
+            return result;
+        }
     }
 }
