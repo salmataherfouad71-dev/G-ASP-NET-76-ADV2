@@ -40,6 +40,14 @@ namespace Assignment._12
             Print(Product.SearchProducts(Catalog, (Product p) => p.Category == "Clothing"&& p.Price<100));
             Console.WriteLine();
             #endregion
+            #region PrintReports
+            Console.WriteLine("---Short Report---");
+            Product.PrintReport(Catalog, (Product p) => Console.WriteLine($"{p.Name}-${p.Price}"));
+            Console.WriteLine();
+            Console.WriteLine("---Detailed Report---");
+            Product.PrintReport(Catalog, (Product p) => Console.WriteLine($"[{p.Category}] {p.Name} | Price:{p.Price} | Stock:{p.Stock}"));
+            Console.WriteLine();
+            #endregion
         }
     }
 }

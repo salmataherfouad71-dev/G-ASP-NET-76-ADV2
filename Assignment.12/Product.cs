@@ -27,5 +27,12 @@ namespace Assignment._12
         {
             return $"{Name}-${Price}(Stock:{Stock})";
         }
+        public static void PrintReport(List<Product>products,Action<Product> printer)
+        {
+            foreach (Product product in products)
+            {
+                printer(product);
+            }
+        }
     }
 }
